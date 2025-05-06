@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ByteUp - Plataforma de Cursos de Tecnologia</title>
+    <meta name="description"
+        content="ByteUp: Aprenda desenvolvimento de sistemas, banco de dados e IoT com cursos práticos e interativos.">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar-content">
+                    <a href="index.html" class="logo">ByteUp</a>
+
+                    <div class="desktop-nav">
+                        <a href="index.html" class="nav-link">Home</a>
+                        <a href="/assets/pages/courses.html" class="nav-link">Cursos</a>
+                    </div>
+
+                    <div class="desktop-buttons">
+                        <a href="/assets/data/login.html" class="btn btn-outline">Login</a>
+                        <a href="/assets/data/register.html" class="btn btn-primary">Cadastre-se</a>
+                    </div>
+
+                    <button id="mobile-menu-btn" class="mobile-menu-btn">
+                        <span class="menu-icon"></span>
+                    </button>
+                </div>
+
+                <div id="mobile-menu" class="mobile-menu">
+                    <div class="mobile-nav">
+                        <a href="index.html" class="nav-link">Home</a>
+                        <a href="/assets/pages/courses.html" class="nav-link">Cursos</a>
+                    </div>
+                    <div class="mobile-buttons">
+                        <a href="/assets/data/login.html" class="btn btn-outline w-full">Login</a>
+                        <a href="/assets/data/register.html" class="btn btn-primary w-full">Cadastre-se</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="fade-in">Transforme seu futuro com <span class="highlight">tecnologia</span></h1>
+                    <p>Domine as habilidades mais demandadas do mercado com nossos cursos práticos e dinâmicos.</p>
+                    <div class="hero-buttons">
+                        <a href="/assets/pages/courses.html" class="btn btn-light">Ver Cursos</a>
+                        <a href="/assets/data/register.html" class="btn btn-outline-light">Cadastre-se Grátis</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Courses -->
+        <section class="featured-courses">
+            <div class="container">
+                <h2>Cursos <span class="text-gradient">Disponíveis</span></h2>
+
+                <div class="courses-grid">
+                    <!-- Course 1 -->
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="Desenvolvimento de Sistemas">
+                        </div>
+                        <div class="course-header">
+                            <h3>Desenvolvimento de Sistemas</h3>
+                            <span class="course-category">Desenvolvimento Web</span>
+                        </div>
+                        <div class="course-content">
+                            <p>Aprenda desenvolvimento web com HTML, CSS e JavaScript. Crie sites interativos do zero.
+                            </p>
+                        </div>
+                        <div class="course-footer">
+                            <a href="/assets/pages/courses/development.html" class="btn btn-primary w-full">Ver Curso</a>
+                        </div>
+                    </div>
+
+                    <!-- Course 2 -->
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="Banco de Dados">
+                        </div>
+                        <div class="course-header">
+                            <h3>Banco de Dados</h3>
+                            <span class="course-category">Banco de Dados</span>
+                        </div>
+                        <div class="course-content">
+                            <p>Domine SQL e aprenda a modelar, criar e consultar bancos de dados eficientemente.</p>
+                        </div>
+                        <div class="course-footer">
+                            <a href="/assets/pages/courses/database.html" class="btn btn-primary w-full">Ver Curso</a>
+                        </div>
+                    </div>
+
+                    <!-- Course 3 -->
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="IoT - Internet das Coisas">
+                        </div>
+                        <div class="course-header">
+                            <h3>IoT - Internet das Coisas</h3>
+                            <span class="course-category">IoT</span>
+                        </div>
+                        <div class="course-content">
+                            <p>Explore o futuro conectado através de sensores, dispositivos e sistemas de automação.</p>
+                        </div>
+                        <div class="course-footer">
+                            <a href="/assets/pages/courses/iot.html" class="btn btn-primary w-full">Ver Curso</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12">
+                    <a href="/assets/pages/courses.html" class="btn btn-outline">Ver Todos os Cursos</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section class="why-choose-us">
+            <div class="container">
+                <h2>Por que escolher a <span class="text-gradient">ByteUp</span>?</h2>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <h3>Aprendizado Prático</h3>
+                        <p>Cursos 100% práticos, focados em projetos reais que você pode adicionar ao seu portfólio.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                            </svg>
+                        </div>
+                        <h3>Conteúdo Atualizado</h3>
+                        <p>Mantemos nosso material sempre atualizado com as mais recentes tecnologias do mercado.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <h3>Comunidade Ativa</h3>
+                        <p>Faça parte de uma comunidade de estudantes e profissionais para networking e ajuda mútua.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>ByteUp</h3>
+                    <p>Plataforma de cursos de tecnologia para impulsionar sua carreira no mundo digital.</p>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="/assets/pages/courses.html">Cursos</a></li>
+                        <li><a href="/assets/data/login.html">Login</a></li>
+                        <li><a href="/assets/data/register.html">Cadastro</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Contato</h4>
+                    <p>contato@byteup.com.br</p>
+                    <p>+55 (11) 99999-8888</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> ByteUp. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/script.js"></script>
+</body>
+
+</html>

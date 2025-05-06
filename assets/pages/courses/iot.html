@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT - Internet das Coisas - ByteUp</title>
+    <meta name="description"
+        content="Aprenda desenvolvimento web com HTML, CSS e JavaScript. Crie sites interativos do zero.">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .course-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 5rem 0;
+        }
+
+        .course-content-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .course-section {
+            margin-bottom: 3rem;
+        }
+
+        .course-section h2 {
+            text-align: left;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--byteup-light);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            background-color: var(--gray-100);
+            border-radius: 0.5rem;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .topic-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .topic-item {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--gray-200);
+            border-radius: 0.5rem;
+            background-color: var(--white);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .topic-item:hover {
+            border-color: var(--byteup-purple);
+            transform: translateY(-2px);
+        }
+
+        .topic-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .topic-title {
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .topic-content {
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .topic-item.active .topic-content {
+            display: block;
+        }
+
+        .course-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .info-icon {
+            margin-bottom: 0.5rem;
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--byteup-light);
+            color: var(--byteup-purple);
+            border-radius: 9999px;
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 1rem;
+            background-color: var(--gray-200);
+            border-radius: 9999px;
+            margin: 1rem 0;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: var(--byteup-purple);
+            border-radius: 9999px;
+            width: 0%;
+            /* Will be updated by JavaScript */
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar-content">
+                    <a href="../../../index.html" class="logo">ByteUp</a>
+
+                    <div class="desktop-nav">
+                        <a href="../../../index.html" class="nav-link">Home</a>
+                        <a href="/assets/pages/courses.html" class="nav-link">Cursos</a>
+                    </div>
+
+                    <div class="desktop-buttons">
+                        <a href="/assets/data/login.html" class="btn btn-outline">Login</a>
+                        <a href="/assets/data/register.html" class="btn btn-primary">Cadastre-se</a>
+                    </div>
+
+                    <button id="mobile-menu-btn" class="mobile-menu-btn">
+                        <span class="menu-icon"></span>
+                    </button>
+                </div>
+
+                <div id="mobile-menu" class="mobile-menu">
+                    <div class="mobile-nav">
+                        <a href="../../../index.html" class="nav-link">Home</a>
+                        <a href="/assets/pages/courses.html" class="nav-link">Cursos</a>
+                    </div>
+                    <div class="mobile-buttons">
+                        <a href="/assets/data/login.html" class="btn btn-outline w-full">Login</a>
+                        <a href="/assets/data/register.html" class="btn btn-primary w-full">Cadastre-se</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="course-hero">
+            <div class="container">
+                <div class="course-content-container">
+                    <h1>IoT - Internet das Coisas</h1>
+                    <p class="mb-4">Explore o futuro conectado através de sensores, dispositivos e sistemas de automação.</p>
+
+                    <div class="progress-container">
+                        <div class="progress-bar" id="course-progress"></div>
+                    </div>
+                    <p id="progress-text">0% concluído</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="course-content-container">
+            <div class="course-info">
+                <div class="info-item">
+                    <div class="info-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            width="24" height="24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <p><strong>Duração</strong></p>
+                    <p>10 horas</p>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            width="24" height="24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                    </div>
+                    <p><strong>Nível</strong></p>
+                    <p>Iniciante</p>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            width="24" height="24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                        </svg>
+                    </div>
+                    <p><strong>Módulos</strong></p>
+                    <p>4 módulos</p>
+                </div>
+            </div>
+
+            <section class="course-section">
+                <h2>Introdução ao IoT - Internet das Coisas</h2>
+
+                <div class="video-container">
+                    <!-- Placeholder for video - in a real app, this would be a real video -->
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                </div>
+
+                <p>Neste curso, você aprenderá os fundamentos do desenvolvimento web moderno. Começaremos com HTML para
+                    criar a
+                    estrutura de páginas web, CSS para estilizá-las e JavaScript para torná-las interativas.</p>
+
+                <p>Ao final do curso, você será capaz de criar sites completos e responsivos do zero, compreendendo os
+                    princípios fundamentais que impulsionam a web moderna.</p>
+            </section>
+
+            <section class="course-section">
+                <h2>Conteúdo do Curso</h2>
+
+                <ul class="topic-list">
+                    <li class="topic-item" data-id="html-basics">
+                        <div class="topic-header">
+                            <h3 class="topic-title">1. Fundamentos de HTML</h3>
+                            <span class="complete-status">Não concluído</span>
+                        </div>
+                        <div class="topic-content">
+                            <p>HTML (HyperText Markup Language) é a linguagem padrão para criar páginas web. Neste
+                                módulo, você
+                                aprenderá:</p>
+                            <ul>
+                                <li>Estrutura básica de um documento HTML</li>
+                                <li>Tags e elementos HTML</li>
+                                <li>Atributos HTML</li>
+                                <li>Links e navegação</li>
+                                <li>Inserção de imagens e mídia</li>
+                                <li>Tabelas e formulários</li>
+                            </ul>
+                            <button class="btn btn-primary mt-4 complete-button" data-id="html-basics">Marcar como
+                                concluído</button>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-id="css-basics">
+                        <div class="topic-header">
+                            <h3 class="topic-title">2. Estilizando com CSS</h3>
+                            <span class="complete-status">Não concluído</span>
+                        </div>
+                        <div class="topic-content">
+                            <p>CSS (Cascading Style Sheets) é usado para estilizar e formatar o conteúdo HTML. Neste
+                                módulo, você
+                                aprenderá:</p>
+                            <ul>
+                                <li>Sintaxe CSS e seletores</li>
+                                <li>Propriedades de texto e cores</li>
+                                <li>Box model e posicionamento</li>
+                                <li>Flexbox e Grid Layout</li>
+                                <li>Animações e transições</li>
+                                <li>Design responsivo e media queries</li>
+                            </ul>
+                            <button class="btn btn-primary mt-4 complete-button" data-id="css-basics">Marcar como
+                                concluído</button>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-id="js-basics">
+                        <div class="topic-header">
+                            <h3 class="topic-title">3. JavaScript para Interatividade</h3>
+                            <span class="complete-status">Não concluído</span>
+                        </div>
+                        <div class="topic-content">
+                            <p>JavaScript é a linguagem de programação que torna as páginas web interativas. Neste
+                                módulo, você
+                                aprenderá:</p>
+                            <ul>
+                                <li>Sintaxe básica de JavaScript</li>
+                                <li>Variáveis, tipos de dados e operadores</li>
+                                <li>Estruturas de controle de fluxo</li>
+                                <li>Funções e escopo</li>
+                                <li>Manipulação do DOM</li>
+                                <li>Eventos e listeners</li>
+                                <li>Requisições AJAX</li>
+                            </ul>
+                            <button class="btn btn-primary mt-4 complete-button" data-id="js-basics">Marcar como
+                                concluído</button>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-id="project">
+                        <div class="topic-header">
+                            <h3 class="topic-title">4. Projeto Final</h3>
+                            <span class="complete-status">Não concluído</span>
+                        </div>
+                        <div class="topic-content">
+                            <p>Neste módulo final, você aplicará todos os conhecimentos adquiridos para criar um site
+                                completo do
+                                zero. O projeto incluirá:</p>
+                            <ul>
+                                <li>Planejamento e wireframing</li>
+                                <li>Estruturação com HTML semântico</li>
+                                <li>Estilização com CSS moderno</li>
+                                <li>Implementação de funcionalidades com JavaScript</li>
+                                <li>Testes e otimização</li>
+                                <li>Publicação do site</li>
+                            </ul>
+                            <button class="btn btn-primary mt-4 complete-button" data-id="project">Marcar como
+                                concluído</button>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>ByteUp</h3>
+                    <p>Plataforma de cursos de tecnologia para impulsionar sua carreira no mundo digital.</p>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="../../../../index.html">Home</a></li>
+                        <li><a href="/assets/pages/courses.html">Cursos</a></li>
+                        <li><a href="/assets/data/login.html">Login</a></li>
+                        <li><a href="/assets/data/register.html">Cadastro</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Contato</h4>
+                    <p>contato@byteup.com.br</p>
+                    <p>+55 (11) 99999-8888</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> ByteUp. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Set current year
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // Topic expand/collapse functionality
+            const topicItems = document.querySelectorAll('.topic-item');
+
+            topicItems.forEach(item => {
+                const header = item.querySelector('.topic-header');
+
+                header.addEventListener('click', () => {
+                    // Close all other items
+                    topicItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Progress tracking
+            const completeButtons = document.querySelectorAll('.complete-button');
+            const progressBar = document.getElementById('course-progress');
+            const progressText = document.getElementById('progress-text');
+            const totalTopics = completeButtons.length;
+
+            // Check localStorage for saved progress
+            let completedTopics = JSON.parse(localStorage.getItem('dev-systems-progress')) || [];
+
+            // Update UI based on saved progress
+            updateProgress();
+
+            completeButtons.forEach(button => {
+                const topicId = button.getAttribute('data-id');
+                const topicItem = document.querySelector(`.topic-item[data-id="${topicId}"]`);
+                const statusSpan = topicItem.querySelector('.complete-status');
+
+                // Set initial state based on localStorage
+                if (completedTopics.includes(topicId)) {
+                    statusSpan.textContent = 'Concluído';
+                    statusSpan.style.color = 'var(--byteup-purple)';
+                    button.textContent = 'Marcar como não concluído';
+                }
+
+                button.addEventListener('click', () => {
+                    if (completedTopics.includes(topicId)) {
+                        // Remove from completed
+                        completedTopics = completedTopics.filter(id => id !== topicId);
+                        statusSpan.textContent = 'Não concluído';
+                        statusSpan.style.color = '';
+                        button.textContent = 'Marcar como concluído';
+                    } else {
+                        // Add to completed
+                        completedTopics.push(topicId);
+                        statusSpan.textContent = 'Concluído';
+                        statusSpan.style.color = 'var(--byteup-purple)';
+                        button.textContent = 'Marcar como não concluído';
+                    }
+
+                    // Save to localStorage
+                    localStorage.setItem('dev-systems-progress', JSON.stringify(completedTopics));
+
+                    // Update progress display
+                    updateProgress();
+                });
+            });
+
+            function updateProgress() {
+                const progressPercentage = (completedTopics.length / totalTopics) * 100;
+                progressBar.style.width = `${progressPercentage}%`;
+                progressText.textContent = `${Math.round(progressPercentage)}% concluído`;
+            }
+        });
+    </script>
+</body>
+
+</html>
