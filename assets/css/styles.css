@@ -23,10 +23,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
   }
   
   body {
-    font-family: "Roboto", sans-serif;
+    
     color: var(--gray-800);
     line-height: 1.6;
     background-color: var(--white);

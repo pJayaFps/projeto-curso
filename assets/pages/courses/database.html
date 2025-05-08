@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="/assets/css/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     .course-hero {
       background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
@@ -147,7 +146,7 @@
   </style>
 </head>
 
-<body>
+<body data-course-id="sql-basico">
   <header>
     <nav class="navbar">
       <div class="container">
@@ -233,7 +232,7 @@
             </svg>
           </div>
           <p><strong>Módulos</strong></p>
-          <p>4 módulos</p>
+          <p>5 módulos</p>
         </div>
       </div>
 
@@ -245,11 +244,13 @@
           <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
         </div>
 
-        <p>Neste curso, você aprenderá os fundamentos do desenvolvimento web moderno. Começaremos com HTML para criar a
-          estrutura de páginas web, CSS para estilizá-las e JavaScript para torná-las interativas.</p>
+        <p>Neste curso, você aprenderá os fundamentos dos bancos de dados. Começaremos com os conceitos essenciais de
+          modelagem de dados, SQL para manipulação e consulta de informações, e boas práticas para organização e
+          integridade dos dados.</p>
 
-        <p>Ao final do curso, você será capaz de criar sites completos e responsivos do zero, compreendendo os
-          princípios fundamentais que impulsionam a web moderna.</p>
+        <p>Ao final do curso, você será capaz de criar, gerenciar e consultar bancos de dados relacionais com segurança
+          e
+          eficiência, compreendendo os princípios que sustentam o armazenamento e o uso inteligente das informações.</p>
       </section>
 
       <section class="course-section">
@@ -258,82 +259,122 @@
         <ul class="topic-list">
           <li class="topic-item" data-id="html-basics">
             <div class="topic-header">
-              <h3 class="topic-title">1. Fundamentos de HTML</h3>
+              <h3 class="topic-title">1. CREATE TABLE: Cria uma nova tabela</h3>
               <span class="complete-status">Não concluído</span>
             </div>
             <div class="topic-content">
-              <p>HTML (HyperText Markup Language) é a linguagem padrão para criar páginas web. Neste módulo, você
-                aprenderá:</p>
-              <ul>
-                <li>Estrutura básica de um documento HTML</li>
-                <li>Tags e elementos HTML</li>
-                <li>Atributos HTML</li>
-                <li>Links e navegação</li>
-                <li>Inserção de imagens e mídia</li>
-                <li>Tabelas e formulários</li>
-              </ul>
+              <h2>🎓 O que é o comando <code>CREATE</code> no SQL?</h2>
+              <p>O comando <code>CREATE</code> é usado para <strong>criar algo novo</strong> no banco de dados —
+                normalmente uma <strong>tabela</strong> 📋.</p>
+              <br>
+
+              <h3>🏗️ Analogia com construção de casa:</h3>
+              <p>Imagine que você é um arquiteto e vai construir uma casa 🏠. Antes de decorar, você precisa montar a
+                estrutura. O <code>CREATE TABLE</code> faz exatamente isso no banco de dados!</p>
+              <br>
+              <p>🧱 <strong>Cômodos</strong> = colunas (ex: nome, idade, e-mail)</p>
+              <p>📦 <strong>Tipos</strong> = tipo de dado (ex: texto, número)</p>
+              <p>⚖️ <strong>Regras</strong> = se pode ser nulo, chave primária, etc.</p>
               <button class="btn btn-primary mt-4 complete-button" data-id="html-basics">Marcar como concluído</button>
             </div>
           </li>
 
           <li class="topic-item" data-id="css-basics">
             <div class="topic-header">
-              <h3 class="topic-title">2. Estilizando com CSS</h3>
+              <h3 class="topic-title">2. INSERT: Adiciona novos registros a uma tabela</h3>
               <span class="complete-status">Não concluído</span>
             </div>
             <div class="topic-content">
-              <p>CSS (Cascading Style Sheets) é usado para estilizar e formatar o conteúdo HTML. Neste módulo, você
-                aprenderá:</p>
-              <ul>
-                <li>Sintaxe CSS e seletores</li>
-                <li>Propriedades de texto e cores</li>
-                <li>Box model e posicionamento</li>
-                <li>Flexbox e Grid Layout</li>
-                <li>Animações e transições</li>
-                <li>Design responsivo e media queries</li>
-              </ul>
+              <h2>🎓 O que é o comando <code>INSERT</code> no SQL?</h2>
+              <p>O comando <code>INSERT</code> é usado para <strong>adicionar novos dados</strong> em uma tabela
+                existente do banco de dados 🧾.</p>
+              <br>
+
+              <h3>🍕 Analogia com um pedido de pizza:</h3>
+              <p>Imagine que você trabalha em uma pizzaria. A estrutura da pizzaria (a tabela) já existe — você só
+                precisa adicionar um novo <strong>pedido</strong> no sistema 🧑‍🍳.</p>
+              <br>
+
+              <p>🛒 <strong>Pedido novo</strong> = linha (ou registro) que está sendo adicionada</p>
+              <p>🧍‍♀️ <strong>Cliente</strong> = os dados reais que preenchem a linha</p>
+              <p>📋 <strong>Campos do pedido</strong> = colunas da tabela (ex: nome, idade, email)</p>
+
               <button class="btn btn-primary mt-4 complete-button" data-id="css-basics">Marcar como concluído</button>
             </div>
           </li>
 
           <li class="topic-item" data-id="js-basics">
             <div class="topic-header">
-              <h3 class="topic-title">3. JavaScript para Interatividade</h3>
+              <h3 class="topic-title">3. SELECT: Seleciona dados de uma tabela</h3>
               <span class="complete-status">Não concluído</span>
             </div>
             <div class="topic-content">
-              <p>JavaScript é a linguagem de programação que torna as páginas web interativas. Neste módulo, você
-                aprenderá:</p>
-              <ul>
-                <li>Sintaxe básica de JavaScript</li>
-                <li>Variáveis, tipos de dados e operadores</li>
-                <li>Estruturas de controle de fluxo</li>
-                <li>Funções e escopo</li>
-                <li>Manipulação do DOM</li>
-                <li>Eventos e listeners</li>
-                <li>Requisições AJAX</li>
-              </ul>
+              <h2>🎓 O que é o comando <code>SELECT</code> no SQL?</h2>
+              <p>O comando <code>SELECT</code> é usado para <strong>consultar e exibir dados</strong> de uma tabela
+                existente no banco de dados 🔍.</p>
+              <br>
+
+              <h3>📚 Analogia com uma biblioteca:</h3>
+              <p>Imagine que você está em uma biblioteca. As estantes e livros já estão lá (a tabela) — você só quer
+                <strong>procurar e visualizar</strong> informações específicas 📖.
+              </p>
+              <br>
+
+              <p>🗂️ <strong>Estante</strong> = tabela com todos os dados armazenados</p>
+              <p>📄 <strong>Livro</strong> = cada linha (ou registro) com informações completas</p>
+              <p>🔖 <strong>Capítulos ou trechos</strong> = colunas específicas que você quer ver (ex: nome, email,
+                idade)</p>
               <button class="btn btn-primary mt-4 complete-button" data-id="js-basics">Marcar como concluído</button>
             </div>
           </li>
 
           <li class="topic-item" data-id="project">
             <div class="topic-header">
-              <h3 class="topic-title">4. Projeto Final</h3>
+              <h3 class="topic-title">4. UPDATE: Atualiza dados em uma tabela</h3>
               <span class="complete-status">Não concluído</span>
             </div>
             <div class="topic-content">
-              <p>Neste módulo final, você aplicará todos os conhecimentos adquiridos para criar um site completo do
-                zero. O projeto incluirá:</p>
-              <ul>
-                <li>Planejamento e wireframing</li>
-                <li>Estruturação com HTML semântico</li>
-                <li>Estilização com CSS moderno</li>
-                <li>Implementação de funcionalidades com JavaScript</li>
-                <li>Testes e otimização</li>
-                <li>Publicação do site</li>
-              </ul>
+              <h2>🎓 O que é o comando <code>UPDATE</code> no SQL?</h2>
+              <p>O comando <code>UPDATE</code> é usado para <strong>modificar dados existentes</strong> em uma tabela do
+                banco de dados 🛠️.</p>
+              <br>
+
+              <h3>📝 Analogia com um cadastro de alunos:</h3>
+              <p>Imagine que você tem uma ficha de cadastro de um aluno. Se ele trocou de endereço ou telefone, você vai
+                <strong>atualizar essa informação</strong> na ficha 📋.
+              </p>
+              <br>
+
+              <p>👤 <strong>Aluno</strong> = uma linha (registro) já existente</p>
+              <p>📞 <strong>Telefone novo</strong> = o dado que está sendo alterado</p>
+              <p>🗃️ <strong>Campo a ser atualizado</strong> = a coluna específica (ex: telefone, endereço)</p>
+
               <button class="btn btn-primary mt-4 complete-button" data-id="project">Marcar como concluído</button>
+            </div>
+          </li>
+
+          <li class="topic-item" data-id="delete">
+            <div class="topic-header">
+              <h3 class="topic-title">5. DELETE: Remove registros de uma tabela</h3>
+              <span class="complete-status">Não concluído</span>
+            </div>
+            <div class="topic-content">
+              <h2>🎓 O que é o comando <code>DELETE</code> no SQL?</h2>
+              <p>O comando <code>DELETE</code> é usado para <strong>remover dados</strong> de uma tabela do banco de
+                dados 🚫.</p>
+              <br>
+
+              <h3>🧹 Analogia com uma lista de presença:</h3>
+              <p>Imagine que um aluno cancelou a matrícula. Você vai <strong>riscar o nome dele</strong> da lista de
+                presença 🧾.</p>
+              <br>
+
+              <p>📃 <strong>Lista de presença</strong> = a tabela com todos os registros</p>
+              <p>❌ <strong>Aluno removido</strong> = a linha (registro) que será excluída</p>
+              <p>🔍 <strong>Critério de remoção</strong> = condição usada para saber quem deve ser deletado (ex: id = 3)
+              </p>
+
+              <button class="btn btn-primary mt-4 complete-button" data-id="delete">Marcar como concluído</button>
             </div>
           </li>
         </ul>
@@ -378,6 +419,10 @@
       // Set current year
       document.getElementById('current-year').textContent = new Date().getFullYear();
 
+      // Definir o ID do curso atual (exemplo: "dev-systems")
+      const courseId = document.body.getAttribute('data-course-id') || 'default-course';
+      const storageKey = `${courseId}-progress`;
+
       // Topic expand/collapse functionality
       const topicItems = document.querySelectorAll('.topic-item');
 
@@ -404,7 +449,7 @@
       const totalTopics = completeButtons.length;
 
       // Check localStorage for saved progress
-      let completedTopics = JSON.parse(localStorage.getItem('dev-systems-progress')) || [];
+      let completedTopics = JSON.parse(localStorage.getItem(storageKey)) || []; // <-- ALTERADO
 
       // Update UI based on saved progress
       updateProgress();
@@ -436,8 +481,8 @@
             button.textContent = 'Marcar como não concluído';
           }
 
-          // Save to localStorage
-          localStorage.setItem('dev-systems-progress', JSON.stringify(completedTopics));
+          // Save to localStorage com courseId específico
+          localStorage.setItem(storageKey, JSON.stringify(completedTopics)); // <-- ALTERADO
 
           // Update progress display
           updateProgress();
@@ -451,6 +496,7 @@
       }
     });
   </script>
+
 </body>
 
 </html>

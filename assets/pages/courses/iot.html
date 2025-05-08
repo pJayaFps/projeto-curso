@@ -147,7 +147,7 @@
     </style>
 </head>
 
-<body>
+<body data-course-id="iot">
     <header>
         <nav class="navbar">
             <div class="container">
@@ -188,7 +188,8 @@
             <div class="container">
                 <div class="course-content-container">
                     <h1>IoT - Internet das Coisas</h1>
-                    <p class="mb-4">Explore o futuro conectado através de sensores, dispositivos e sistemas de automação.</p>
+                    <p class="mb-4">Explore o futuro conectado através de sensores, dispositivos e sistemas de
+                        automação.</p>
 
                     <div class="progress-container">
                         <div class="progress-bar" id="course-progress"></div>
@@ -390,6 +391,10 @@
             // Topic expand/collapse functionality
             const topicItems = document.querySelectorAll('.topic-item');
 
+            // Definir o ID do curso atual (exemplo: "dev-systems")
+            const courseId = document.body.getAttribute('data-course-id') || 'default-course';
+            const storageKey = `${courseId}-progress`;
+
             topicItems.forEach(item => {
                 const header = item.querySelector('.topic-header');
 
@@ -413,7 +418,7 @@
             const totalTopics = completeButtons.length;
 
             // Check localStorage for saved progress
-            let completedTopics = JSON.parse(localStorage.getItem('dev-systems-progress')) || [];
+            let completedTopics = JSON.parse(localStorage.getItem(storageKey)) || []; // <-- ALTERADO
 
             // Update UI based on saved progress
             updateProgress();
@@ -446,7 +451,7 @@
                     }
 
                     // Save to localStorage
-                    localStorage.setItem('dev-systems-progress', JSON.stringify(completedTopics));
+                    localStorage.setItem(storageKey, JSON.stringify(completedTopics)); // <-- ALTERADO
 
                     // Update progress display
                     updateProgress();

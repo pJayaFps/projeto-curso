@@ -147,7 +147,7 @@
   </style>
 </head>
 
-<body>
+<body data-course-id="development"> 
   <header>
     <nav class="navbar">
       <div class="container">
@@ -378,6 +378,10 @@
       // Set current year
       document.getElementById('current-year').textContent = new Date().getFullYear();
 
+      // Definir o ID do curso atual (exemplo: "dev-systems")
+      const courseId = document.body.getAttribute('data-course-id') || 'default-course';
+      const storageKey = `${courseId}-progress`;
+
       // Topic expand/collapse functionality
       const topicItems = document.querySelectorAll('.topic-item');
 
@@ -404,7 +408,7 @@
       const totalTopics = completeButtons.length;
 
       // Check localStorage for saved progress
-      let completedTopics = JSON.parse(localStorage.getItem('dev-systems-progress')) || [];
+      let completedTopics = JSON.parse(localStorage.getItem(storageKey)) || []; // <-- ALTERADO
 
       // Update UI based on saved progress
       updateProgress();
@@ -437,7 +441,7 @@
           }
 
           // Save to localStorage
-          localStorage.setItem('dev-systems-progress', JSON.stringify(completedTopics));
+          localStorage.setItem(storageKey, JSON.stringify(completedTopics)); // <-- ALTERADO
 
           // Update progress display
           updateProgress();
